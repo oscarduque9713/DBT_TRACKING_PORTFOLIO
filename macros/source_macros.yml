@@ -1,0 +1,6 @@
+
+sources: 
+    - name: landing_zone
+      schema: landing
+      tables:
+      - name: clientes

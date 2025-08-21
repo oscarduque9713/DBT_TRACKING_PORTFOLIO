@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: snowflake_dbt
+    database: TRACKING_PORTAFOLIO
+    schema: SOURCE_DATA
+    description: DATOS PROVENIENTES DE CSV
+    tables:
+      - name: ABC_BANK_POSITION
+        description: Lista de clientes activos
+        
+
