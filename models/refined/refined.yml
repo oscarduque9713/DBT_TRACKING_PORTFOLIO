@@ -1,0 +1,67 @@
+
+version: 2
+models:
+  - name: POSITION_ABC_BANK
+    description: Las posiciones que tenemos en la cartera del ABC Bank.
+    columns:
+        
+      - name: POSITION_VALUE_EURO
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: POSITION_VALUE_USD
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: COST_VALUE_EURO
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: COST_VALUE_USD
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+  - name: PSA_SLV_POSITION_TRANSFORMATIONS
+    description: Las posiciones que tenemos en la cartera del ABC Bank.
+    columns:
+        
+      - name: UNREALIZED_PROFIT_LC
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: UNREALIZED_PROFIT_PCT_LC
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: UNREALIZED_PROFIT_EURO
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: UNREALIZED_PROFIT_PCT_EURO
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: UNREALIZED_PROFIT_USD
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: UNREALIZED_PROFIT_PCT_USD
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: DAYS_OPERATION
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      
