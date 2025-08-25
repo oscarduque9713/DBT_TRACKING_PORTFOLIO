@@ -1,0 +1,44 @@
+
+version: 2
+models:
+  - name: DMT_POSITION
+    description: Las posiciones que tenemos en la cartera del ABC Bank.
+    columns:
+        
+      - name: MONTH_NUMBER
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: COST_LC
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: POSICION_LC
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: COST_EURO
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+        
+      - name: POSICION_EURO
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: COST_USD
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      - name: POSICION_USD
+        description: El beneficio no realizado en la posición.
+        tests:
+          - not_null
+
+      
+      
