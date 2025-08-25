@@ -5,7 +5,7 @@ models:
     description: Las posiciones que tenemos en la cartera del ABC Bank.
     columns:
         
-      - name: MONTH_NUMBER
+      - name: REPORT_DATE_MONTH
         description: El beneficio no realizado en la posición.
         tests:
           - not_null
