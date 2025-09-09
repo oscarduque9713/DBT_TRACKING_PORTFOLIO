@@ -40,8 +40,8 @@ models:
     +materialized: view
     
     staging:          # 📦 Capa de almacenamiento
-      +materialized: view
-      +schema: STAGING
+      +materialized: tabla
+      +schema: STG_SOURCE
 
     refined:
       +materialized: view

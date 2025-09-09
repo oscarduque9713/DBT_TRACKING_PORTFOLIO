@@ -25,6 +25,6 @@ SELECT
                 ELSE ( T.COST_BASE / NULLIF(C.USD, 0))  END) COST_VALUE_USD
     , GETDATE() AS DATE_CURRENTLY
     , EXTRACT( 'dayofweek', REPORT_Date) AS WEEKDAY_
-FROM {{ source('snowflake_dbt', 'ABC_BANK_POSITION') }} T 
-INNER JOIN {{ source('snowflake_dbt', 'CATALOG_CURRENCY') }} C 
+FROM {{ ref('ABC_BANK_POSITION') }} T 
+INNER JOIN {{ ref('CATALOGO_CURRENCY') }} C 
 ON T.CURRENCY = C.CURRENCY
