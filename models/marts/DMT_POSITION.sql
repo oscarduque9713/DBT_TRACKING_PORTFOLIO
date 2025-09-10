@@ -1,3 +1,12 @@
+{{
+    config(
+        materialized='incremental',
+        database='TRACKING_PORTAFOLIO',
+        pre_hook="TRUNCATE TABLE IF EXISTS {{ this }}"
+    )
+}}
+
+
 
 WITH DATE_FINAL AS (
     SELECT 

@@ -39,17 +39,15 @@ models:
   portfolio_tracking:
     +materialized: view
     
-    staging:          # 📦 Capa de almacenamiento
-      +materialized: tabla
+    STG_SOURCE:          # 📦 Capa de almacenamiento
+      +materialized: incremental
+      +incremental_strategy: delete+insert
       +schema: STG_SOURCE
+      
 
     refined:
       +materialized: view
       +schema: REFINED
-
-    SILVER:
-      +materialized: TABLE
-      +schema: SILVER
 
     marts:            # 📤 Capa de entrega de datos
       +materialized: table
