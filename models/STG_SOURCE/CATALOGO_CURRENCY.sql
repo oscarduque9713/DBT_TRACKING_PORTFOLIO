@@ -1,4 +1,7 @@
 
+
+/* Query for loading catalog */
+
 {{
     config(
         materialized='incremental',

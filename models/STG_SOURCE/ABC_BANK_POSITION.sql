@@ -1,3 +1,6 @@
+
+/* Query for loading fact table */
+
 {{
     config(
         materialized='incremental',

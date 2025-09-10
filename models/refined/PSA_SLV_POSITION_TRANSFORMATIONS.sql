@@ -1,4 +1,6 @@
 
+/* Query for perofrming the indicators */
+
 SELECT 
     ACCOUNTID
     , SYMBOL

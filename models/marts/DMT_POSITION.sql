@@ -1,3 +1,5 @@
+/* Query for final table */
+
 {{
     config(
         materialized='incremental',
