@@ -50,7 +50,8 @@ models:
       +schema: REFINED
 
     marts:            # 📤 Capa de entrega de datos
-      +materialized: table
+      +materialized: incremental
+      +incremental_strategy: delete+insert
       schema: DMT_PORTFOLIO
 
 snapshots:
