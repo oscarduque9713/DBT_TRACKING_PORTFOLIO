@@ -1,5 +1,5 @@
 
-
+/* Query for join tables */
 
 SELECT
     T.ACCOUNTID
