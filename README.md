@@ -1,58 +1,73 @@
-# 💰 Controlador de Presupuesto Personal
+# 📊 Seguimiento de Operaciones de Trading con dbt + Snowflake
 
-Bienvenido a la aplicación que te ayuda a controlar tu presupuesto de manera sencilla y efectiva.
-Esta herramienta está diseñada para que puedas administrar tus ingresos y gastos, y tomar mejores decisiones financieras en tu día a día.
+Bienvenido al proyecto de data engineering y analytics que permite administrar, transformar y analizar operaciones de trading en un entorno moderno de datos.
+Este repositorio está diseñado para aprovechar dbt como framework de transformación de datos y Snowflake como data warehouse escalable y seguro.
 
-## Que hace esta aplicaión?
+## Que hace esta proyecto?
 
-- Permite registrar tus ingresos y gastos con descripciones y valores.
+- Carga de datos de operaciones: integra información de diferentes fuentes (plataformas de trading, archivos históricos, APIs de brokers).
 
-- Cambia y muestra los montos en tres tipos de monedas diferentes: pesos, dólares y euros.
+- Modelado con dbt: transforma datos crudos en modelos analíticos listos para usar (staging, intermedios y modelos finales).
 
-- Obtiene el tipo de cambio real para convertir pesos a dólares y euros automáticamente.
+- Métricas clave de trading: genera tablas y vistas con indicadores como:
 
-- Guarda todos tus datos localmente para que tu información sea persistente entre sesiones.
+Volumen de operaciones.
 
-- Presenta un resumen claro de tu presupuesto actual y el balance disponible.
+Ganancias y pérdidas (PnL).
 
-- Interfaz simple, intuitiva y responsive para usarla desde cualquier dispositivo.
+Retorno sobre inversión (ROI).
+
+Exposición y riesgo por instrumento.
+
+- Historización y consistencia: asegura persistencia en los datos de cada trade y control de versiones en modelos dbt.
+
+- Integración con Snowflake: permite escalar el procesamiento y analizar millones de registros de forma rápida y confiable.
 
 
-## Capturas de Pantalla 📷📷
 
-- Vista pantalla móvil
+## Ejemplo de Resultados 📷
+
+- Vista en dbt docs (lineage de modelos y dependencias).
 
 ![Inicio-Móvil](css/capture%20(2).png)
 
 
-- Vista pantalla Desktop
+- Reportes de métricas de trading en Snowflake dashboards / BI tools.
 
 ![Inicio-Desktop](css/capture-gastos.png)
 
 
 ## 🎯 Características principales
 
-- Registro dinámico de ingresos y egresos.
+- Modelado modular con dbt: staging, mart y análisis de operaciones.
 
-- Conversión automática y en tiempo real entre pesos, dólares y euros según la tasa de cambio actual.
+- Optimización en Snowflake: uso de clustering, vistas materializadas y warehouses elásticos.
 
-- Almacenamiento local que asegura que tus datos no se pierdan al cerrar o recargar la aplicación.
+- Auditoría y calidad de datos: tests de dbt para validar integridad, duplicados y reglas de negocio.
 
-- Visualización en tiempo real del saldo disponible.
+- Versionado y CI/CD: integración con GitHub Actions para despliegue automático.
 
-- Interfaz amigable hecha con JavaScript, HTML y CSS.
+- Escalabilidad: diseñado para crecer desde cientos hasta millones de operaciones.
 
 
 ## 🛠 Tecnologías Utilizadas
 
-- **HTML5**
-- **CSS3**
-- **JavaScript**
+- **dbt Core**
+- **Snowflake**
+- **SQL**
+- **SQL**
+- **SQL**
 
 
 ### 🧠 Inspiración
 
-Este portafolio fue **hecho** con la ayuda del curso de Javascript de Udemy, le hice mejoras en persistencia con LocalStorage y ademas lo hice resposive, agregue tres tipos de monedas mas.
+Este proyecto nace como una solución de data engineering aplicada al trading, con la idea de:
+
+- Estandarizar el flujo de datos de operaciones.
+
+- Dar trazabilidad a cada trade.
+
+- Construir dashboards y reportes con métricas clave para toma de decisiones.
 
 
 ## Licencia
