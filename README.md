@@ -29,7 +29,7 @@ Exposición y riesgo por instrumento.
 
 - Vista en dbt docs (lineage de modelos y dependencias).
 
-![Inicio-Móvil](css/capture%20(2).png)
+![Inicio-Móvil](images/lineash.png)
 
 
 - Reportes de métricas de trading en Snowflake dashboards / BI tools.
