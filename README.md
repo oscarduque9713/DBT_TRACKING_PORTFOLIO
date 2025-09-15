@@ -10,7 +10,7 @@ Este repositorio está diseñado para aprovechar dbt como framework de transform
 
 - Modelado con dbt, transformando datos crudos en modelos analíticos listos para usar:
 
-Bronze (Staging): Se realiza un truncate and insert (borrar e insertar) en las tablas para mantener una copia exacta de los datos crudos con trazabilidad completa.
+Bronze (STG_SOURCE): Se realiza un truncate and insert (borrar e insertar) en las tablas para mantener una copia exacta de los datos crudos con trazabilidad completa.
 
 Silver (Refined): Los datos se transforman y limpian en vistas materializadas para garantizar rendimiento y disponibilidad de datos validados y estandarizados.
 
@@ -27,7 +27,7 @@ Gold (Mart/DMT): Se aplica de nuevo la estrategia de truncate and insert para ga
 
 - Arquitectura
 
-![architectura](images/architecture.png)
+![architectura](images/Architecture.png)
 
 
 ## 🎯 Características principales
@@ -63,6 +63,14 @@ Para establecer una conexión estable entre Snowflake y dbt, se realizaron las s
 4. Asignación de privilegios necesarios al usuario sobre la base de datos, schemas y stage.
 
 Detalles en [Pre-Configuration Snowflake](Pre_configuration_Snowflake.md)
+
+el detalle de las siguientes capas es el siguiente.
+
+Capa Brinze (STG_SOURCE) [Bronze](models/STG_SOURCE/README.md)
+
+Capa silver (Refined) [Silver](models/refined/README.md)
+
+Capa Gold (Marts) [Gold](models/marts/README.md)
 
 
 ### 🧠 Inspiración
