@@ -5,21 +5,9 @@ Este repositorio está diseñado para aprovechar dbt como framework de transform
 
 ## Que hace esta proyecto?
 
-- Carga de datos de operaciones: integra información de diferentes fuentes (plataformas de trading, archivos históricos, APIs de brokers).
+- Carga de datos de operaciones integrando información de fuentes (archivo Json, archivo csv).
 
-- Modelado con dbt: transforma datos crudos en modelos analíticos listos para usar (staging, intermedios y modelos finales).
-
-- Métricas clave de trading: genera tablas y vistas con indicadores como:
-
-Volumen de operaciones.
-
-Ganancias y pérdidas (PnL).
-
-Retorno sobre inversión (ROI).
-
-Exposición y riesgo por instrumento.
-
-- Historización y consistencia: asegura persistencia en los datos de cada trade y control de versiones en modelos dbt.
+- Modelado con dbt: transforma datos crudos en modelos analíticos listos para usar (staging, refined y DMT).
 
 - Integración con Snowflake: permite escalar el procesamiento y analizar millones de registros de forma rápida y confiable.
 
@@ -31,17 +19,11 @@ Exposición y riesgo por instrumento.
 
 ![Inicio-Móvil](images/lineash.png)
 
-
-- Reportes de métricas de trading en Snowflake dashboards / BI tools.
-
-![Inicio-Desktop](css/capture-gastos.png)
-
-
 ## 🎯 Características principales
 
 - Modelado modular con dbt: staging, mart y análisis de operaciones.
 
-- Optimización en Snowflake: uso de clustering, vistas materializadas y warehouses elásticos.
+- Optimización en Snowflake: uso de clustering y vistas materializadas.
 
 - Auditoría y calidad de datos: tests de dbt para validar integridad, duplicados y reglas de negocio.
 
@@ -55,21 +37,39 @@ Exposición y riesgo por instrumento.
 - **dbt Core**
 - **Snowflake**
 - **SQL**
-- **SQL**
-- **SQL**
+
+
+## 🛠 Configuraciones iniciales
+
+Para garantizar una conexion estable entre snowflake y DBT, se realizaron las siguientes actividades.
+
+- Crear base de datos con la cuenta default de snowflake.
+
+- crear un nuevo role y asignarlo a un nuevo usuario.
+
+- Crear schemas y stage (para este proceso se utiliza un stage de snwoflake).
+
+- Otorgar los privilegios necesarios al usuario para la base de datos, shcemas y stage.
+
+la configuracion se encuentra en el siguiente código.
+
+[Pre_configuration_snowflake]
+
 
 
 ### 🧠 Inspiración
 
-Este proyecto nace como una solución de data engineering aplicada al trading, con la idea de:
+Este proyecto nace como una solución del Bootcamp Data Engineer de Z2H Academy, con la idea de:
 
 - Estandarizar el flujo de datos de operaciones.
 
 - Dar trazabilidad a cada trade.
 
-- Construir dashboards y reportes con métricas clave para toma de decisiones.
+- Crear una arquitectura moderna, que se pueda escalar facilmente.
 
 
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+
