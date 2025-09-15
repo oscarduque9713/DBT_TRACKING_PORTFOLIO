@@ -30,4 +30,4 @@ CREATE OR REPLACE FILE FORMAT TRACKING_PORTAFOLIO.STG_SOURCE.JSON_FORMAT
 
 Finalmente se realiza el siguiente proceso,  Loading Data Using the COPY INTO or SELECT FROM @stage.
 
-![copy-into](../../images/copy_into.png)
+![copy-into](../../images/fondo_4.png)
