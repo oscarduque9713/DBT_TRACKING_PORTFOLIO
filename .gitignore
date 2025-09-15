@@ -3,7 +3,6 @@
 dbt_packages/
 macros/
 <<<<<<< HEAD
-images/
 =======
 macros/load_from_external.sql
 macros/source_macros.yml
