@@ -2,10 +2,3 @@
 # these are the default directory names, adjust/add to fit your needs
 dbt_packages/
 macros/
-<<<<<<< HEAD
-=======
-macros/load_from_external.sql
-macros/source_macros.yml
-
-
->>>>>>> c73ab19ea76010b9a5b640355091163e66108e83

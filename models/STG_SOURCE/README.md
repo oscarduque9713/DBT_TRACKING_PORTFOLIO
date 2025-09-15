@@ -1,33 +1,56 @@
-# 📊 Seguimiento de Operaciones de Trading con dbt + Snowflake
 
-# Stage STG_SOURCE
+📂 Stage: STG_SOURCE
 
-El siguiente schema es donde se encuentran las tablas sin ninguna transformación, se cargan del stage a tablas en snowflake en su formato orginal, lo anterior se hace para tewner una trazabilidad dee la informacion, y realizar pruebas para garantizar la calidad y precision de los datos.
+El esquema STG_SOURCE corresponde a la capa Bronze dentro del modelo de datos.
+Aquí se almacenan las tablas en su formato original, sin transformaciones, tal como se cargan desde el stage de Snowflake.
 
-Inicialmente los datos se cargan manualmente al stage de snowflake ( para automatizar esta tarea, se puede hacer con IICS), uno tiene formato JSON y otro CSV.
+Este enfoque permite:
 
-Para verificar si los archivos quedaron cargados correctamente en el stage, se puede visualizar los archivos con el siguiente comando.
+Mantener trazabilidad de la información desde la fuente.
 
-LIST @TRACKING_PORTAFOLIO.STG_SOURCE.STG_RAW ;
+Realizar pruebas de calidad y precisión de los datos antes de aplicar transformaciones posteriores.
 
-Posteriormente se crean los file format en snwoflake para cada uno.
+📥 Carga de datos
 
-- file format csv
+Inicialmente, los archivos se cargan de manera manual al stage de Snowflake.
+En este caso se manejan dos formatos:
 
-CREATE OR REPLACE FILE TRACKING_PORTAFOLIO.STG_SOURCE.FORMAT CSV_FORMAT_COMA
+JSON
+
+CSV
+
+⚡ En el futuro, esta carga puede ser automatizada mediante herramientas como Informatica IICS.
+
+🔍 Verificación de archivos en el Stage
+
+Para comprobar que los archivos fueron cargados correctamente en el stage, se puede usar el siguiente comando:
+
+LIST @TRACKING_PORTAFOLIO.STG_SOURCE.STG_RAW;
+
+
+📝 Creación de File Formats
+
+Se definen file formats en Snowflake para manejar correctamente los distintos tipos de archivo.
+
+📑 CSV Format
+
+CREATE OR REPLACE FILE FORMAT TRACKING_PORTAFOLIO.STG_SOURCE.CSV_FORMAT_COMA
     TYPE = 'CSV'
     FIELD_DELIMITER = ','
     SKIP_HEADER = 1
     NULL_IF = ('NULL', 'null')
     EMPTY_FIELD_AS_NULL = TRUE;
 
-- File format Json
+📑 JSON Format
 
 CREATE OR REPLACE FILE FORMAT TRACKING_PORTAFOLIO.STG_SOURCE.JSON_FORMAT
     TYPE = 'JSON'
     STRIP_OUTER_ARRAY = TRUE;
 
 
-Finalmente se realiza el siguiente proceso,  Loading Data Using the COPY INTO or SELECT FROM @stage.
+🚀 Proceso de carga con COPY INTO
 
-![copy-into](../../images/fondo_4.png)
+Una vez definidos los file formats, se procede a cargar los datos desde el stage utilizando COPY INTO o consultas directas con SELECT FROM @stage.
+
+SELECT ...
+FROM @stg_raw/tables.csv (FILE_FORMAT => CSV_FORMAT_COMA);
