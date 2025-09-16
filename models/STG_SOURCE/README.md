@@ -1,36 +1,33 @@
 
 📂 Stage: STG_SOURCE
 
-El esquema STG_SOURCE corresponde a la capa Bronze dentro del modelo de datos.
-Aquí se almacenan las tablas en su formato original, sin transformaciones, tal como se cargan desde el stage de Snowflake.
+This schema represents the bronze later in the data model.
+Here, tables are stored in their original format, without transformations, exactly as they are loaded from snowflake stage.
 
-Este enfoque permite:
+This enables:
 
-Mantener trazabilidad de la información desde la fuente.
+Preserving traceability of the source data.
 
-Realizar pruebas de calidad y precisión de los datos antes de aplicar transformaciones posteriores.
+Performing QA and data accuracy checks before applying further transformations.
 
-📥 Carga de datos
+📥 Data loading
 
-Inicialmente, los archivos se cargan de manera manual al stage de Snowflake.
-En este caso se manejan dos formatos:
+Iniitally, files were loaded manually into snwoflake stage.
+At this point, two file formats are supported:
 
-JSON
+- **JSON**
 
-CSV
+- **CSV**
 
-⚡ En el futuro, esta carga puede ser automatizada mediante herramientas como Informatica IICS.
+🔍 Verifying files in stage
 
-🔍 Verificación de archivos en el Stage
-
-Para comprobar que los archivos fueron cargados correctamente en el stage, se puede usar el siguiente comando:
+To validate that the files are available in the stage, use the following query:
 
 LIST @TRACKING_PORTAFOLIO.STG_SOURCE.STG_RAW;
 
+📝 Creating File Formats
 
-📝 Creación de File Formats
-
-Se definen file formats en Snowflake para manejar correctamente los distintos tipos de archivo.
+File formats are created in snowflake to correctly handlt different type files.
 
 📑 CSV Format
 
@@ -48,9 +45,13 @@ CREATE OR REPLACE FILE FORMAT TRACKING_PORTAFOLIO.STG_SOURCE.JSON_FORMAT
     STRIP_OUTER_ARRAY = TRUE;
 
 
-🚀 Proceso de carga con COPY INTO
+🚀 Loading Process with COPY INTO
 
-Una vez definidos los file formats, se procede a cargar los datos desde el stage utilizando COPY INTO o consultas directas con SELECT FROM @stage.
+Once file formats are created, data can be loaded from stage using COPY INTO.
+
+For fact table, JSON_FORMAT is used, in the other way, CSV_FORMAT_COMA is used by dimension table.
 
 SELECT ...
 FROM @stg_raw/tables.csv (FILE_FORMAT => CSV_FORMAT_COMA);
+
+The next step is the silver layer [Silver](../refined/README.md)

@@ -1,91 +1,94 @@
 # 📊 Tracking Portfolio dbt + Snowflake
 
-Bienvenido al proyecto de data engineering y analytics que permite administrar, transformar y analizar operaciones de trading en un entorno moderno de datos.
+This project enables the administration, transformation and analysis of tracking portfolio in a modern data environment.
 
-Este repositorio está diseñado para aprovechar dbt como framework de transformación y Snowflake como data warehouse escalable y seguro, siguiendo la arquitectura Medallion (Bronze, Silver, Gold).
+It leverages DBT as the transformation framework and Snowflake as scalable and secure data warehouse, following the medallion architecture (Bronze, Silver, Gold).
 
-## Que hace esta proyecto?
+## What does this project do?
 
-- Carga de datos de operaciones integrando información desde archivos en formato JSON y CSV.
+- Data loading: ingests trading operation data from files JSON y CSV.
 
-- Modelado con dbt, transformando datos crudos en modelos analíticos listos para usar:
+- Data transformation with DBT: Converts raw data into ready-to-use analytical models.
 
-Bronze (STG_SOURCE): Se realiza un truncate and insert (borrar e insertar) en las tablas para mantener una copia exacta de los datos crudos con trazabilidad completa.
+Bronze (STG_SOURCE): performs truncate and insert operations to maintain an exact copy of the raw data with full traceability.
 
-Silver (Refined): Los datos se transforman y limpian en vistas materializadas para garantizar rendimiento y disponibilidad de datos validados y estandarizados.
+Silver (Refined): cleans and transforms data into materialized views to optimize performance, validate quality and standarize data.
 
-Gold (Mart/DMT): Se aplica de nuevo la estrategia de truncate and insert para garantizar la idempotencia y el recálculo completo de los modelos finales para reportes e insights.
+Gold (Mart/DMT): recalculates and aggregates data into final models used for reports.
 
-- Integración con Snowflake: permite escalar el procesamiento y analizar millones de registros de forma rápida y confiable.
-
-
-## Ejemplo de Resultados 📷
-
-- Vista en dbt docs (lineage de modelos y dependencias).
-
-![Inicio-Móvil](images/lineash.png)
-
-- Arquitectura
-
-![architectura](images/Architecture.png)
+- Integration with Snowflake: scales processing and analysis quickly and reliably.
 
 
-## 🎯 Características principales
+## Example results 📷
 
-- Modelado modular con dbt: staging, refined y mart.
+- DBT docs view (lineage and model dependencies).
 
-- Optimización en Snowflake: uso de clustering y vistas materializadas.
+![Lineage](images/lineash.png)
 
-- Auditoría y calidad de datos: tests de dbt para validar integridad.
+- Architecture overview
 
-- Versionado y CI/CD: integración con GitHub Actions para despliegue automático.
-
-- Escalabilidad: diseñado para crecer desde cientos hasta millones de operaciones.
+![architecture](images/Architecture.png)
 
 
-## 🛠 Tecnologías Utilizadas
+## 🎯  Key features
 
-- **dbt Core**
+- **Modular Modeling with DBT**: staging, refined and mart layers.
+
+- **Performance optimization in Snowflake**: materialized view.
+
+- **Data quality & audit**: DBT tests to ensure accuracy.
+
+- **Version control and CI/CD**: GIT HUB actions for automated deployment.
+
+- **Scalability**: designed to growth from thousands to millions of operations.
+
+
+## 🛠 Tools used
+
+- **DBT Core**
 - **Snowflake**
 - **SQL**
 
 
-## 🛠 Configuraciones iniciales
+## 🛠 Initial setup
 
-Para establecer una conexión estable entre Snowflake y dbt, se realizaron las siguientes configuraciones:
+To establish a stable connection between Snowflake and DBT, the following steps are required:
 
-1. Creación de la base de datos en la cuenta default de Snowflake.
+1. Create a database under default Snowflake user.
 
-2. Creación de un nuevo role y asignación a un usuario específico.
+2. Create a new role and user, and assign the role to the user.
 
-3. Creación de schemas y stage (Snowflake stage).
+3. CreatEing schemas and stage (Snowflake stage).
 
-4. Asignación de privilegios necesarios al usuario sobre la base de datos, schemas y stage.
+4. Grant the neccesary privilegies to the role over database, schemas ans stage.
 
-Detalles en [Pre-Configuration Snowflake](Pre_configuration_Snowflake.md)
-
-el detalle de las siguientes capas es el siguiente.
-
-Capa Brinze (STG_SOURCE) [Bronze](models/STG_SOURCE/README.md)
-
-Capa silver (Refined) [Silver](models/refined/README.md)
-
-Capa Gold (Marts) [Gold](models/marts/README.md)
+For more details, see [Pre-Configuration Snowflake](Pre_configuration_Snowflake.md)
 
 
-### 🧠 Inspiración
+## 🛠 Medallion architecture Bronze, silver and Gold
 
-Este proyecto nace como una solución del Bootcamp Data Engineer de Z2H Academy, con la idea de:
+Detail of each layer.
 
-- Estandarizar el flujo de datos de operaciones.
+- **Bronze** (STG_SOURCE) [Bronze](models/STG_SOURCE/README.md)
 
-- Dar trazabilidad a cada trade.
+- **Silver** (Refined) [Silver](models/refined/README.md)
 
-- Crear una arquitectura moderna, que se pueda escalar facilmente.
+- **Gold** (Marts) [Gold](models/marts/README.md)
 
 
-## Licencia
+### 🧠 Inspiration
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+This project was created as part of the Data Engineering Bootcamp by Z2H Academy, with the following goals:
+
+- Standarize a workflow.
+
+- Ensure full traceability of every operation.
+
+- Build a modern, easily scalable architecture.
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for datails.
 
 

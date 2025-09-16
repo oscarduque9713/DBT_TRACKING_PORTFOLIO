@@ -1,34 +1,36 @@
 
-📊 Modelos DMT MARTS
+📊 DMT MARTS models
 
-Este modelo crea un data mart dimensional optimizado para reporting y análisis de posiciones de inversión, con métricas acumuladas y agregaciones mensuales.
+This model creates a data mart optimized for reporting and analysis of portfolio tracking, with measures acumulated y no acumulated.
 
-🎯Objetivos del Data Mart
+🎯Objectives Data Mart
 
-1. Performance optimizada: Estructura pre-agregada para consultas rápidas.
+1. Performance optimized: Pre aggregated structure for faster queries.
 
-2. Análisis temporal: Tendencia mensual y acumulados.
+2. Temporal analysis: monthly and accumulated trends.
 
-3. Multidivisa: Métricas consistentes en múltiples monedas.
+3. Multicurrency: consistent metrics across LC, EUR and USD.
 
-4. Consistencia: Datos listos para consumo en herramientas de BI.
+4. Consistency: Data ready to use in toools BI.
 
-Transformaciones aplicadas:
+Transformations applied:
 
-- Agregación temporal: Consolidación de datos a nivel mensual
+- Temporal aggregation: Consolidates data by month.
 
-- Fecha de reporte: Último día de cada mes (DATEADD(DAY, -1, DATEADD(MONTH, 1, ...)))
+- Report date: Uses the last day of each month (DATEADD(DAY, -1, DATEADD(MONTH, 1, ...)))
 
-- Agrupación: Por cuenta, mes, divisa y descripción de divisa
+- Grouping dimensions: by account, month, currency and currency description.
 
-- Sumatorias: Agregación de costos y valores de posición en todas las divisas
+- Totals: aggregates cost and position in each currency.
 
-- Redondeo: Precisión consistente de 3 decimales.
+- Rounding: ensures consistent accuracy in 3 decimals.
 
-Métricas calculadas:
+Calculated metrics:
 
-- Valores mensuales: Costo y posición por mes en LC, EUR y USD
+- Monthly values: Cost and position by month, LC, EUR and USD.
 
-- Acumulados anuales: Suma acumulada por cuenta y divisa a través del tiempo
+- Accumulated totals: calculates sum by account and currency over the time.
 
-- Window functions: Uso de OVER(PARTITION BY... ORDER BY...) para cálculos acumulativos
+- Window functions: Uses OVER(PARTITION BY... ORDER BY...) by acumulated calculates.
+
+👉 With this mart, business users and BI tools can efficiently explore trends, exposures, and performance across time and multiple currencies, with data already pre-aggregated for optimal performance.

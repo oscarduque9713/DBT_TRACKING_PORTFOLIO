@@ -1,40 +1,50 @@
 
-📊 Modelos en la Capa Silver
+📊 Data model in layer Silver
 
-La capa Silver representa la etapa de transformación y enriquecimiento de datos donde aplicamos reglas de negocio, unificamos formatos y preparamos los datos para el consumo analítico.
+The silver layer is the stage where data is transformed and cleaned.
+
+Here, business rules are applied, formats are standarized and the data is prepared for analytics. 
+
+This layer contains two views:
 
 1. POSITION_ABC_BANK
 
-Propósito: Este modelo une la información de posiciones con el catálogo de divisas para calcular los valores en múltiples monedas.
+**Source** : models from the Bronze layer.
 
-Características:
+**Purpose**: this models combine position information with currency catalog to calculate the value in multiple currencies.
 
-Joins: Combina datos de posiciones con información de divisas.
+**Features**:
 
-Conversión de monedas: Calcula valores equivalentes en EUR y USD.
+Joins: merges position data with currency information.
 
-Metadatos: Añade fecha de procesamiento y información del día de la semana.
+Currency conversion: calculate values in EUR and USD.
+
+Metadata: Adds process date and day of week information.
 
 2. PSA_SLV_POSITION_TRANSFORMATION
 
-Propósito: Este modelo calcula métricas financieras clave como ganancias/pérdidas no realizadas en diferentes divisas.
+**Source** : the view previoously, POSITION_ABC_BANK.
 
-Características:
+**Purpose**: calculate key finance metrics such as gains or losses in different currencies.
 
-Cálculos financieros: Ganancias no realizadas y porcentajes en múltiples divisas
+**Features**:
 
-Redondeo: Valores consistentes con precisión de 3 decimales
+Financial calculates: calculate unrealized gains and percentage in various currencies.
 
-Métricas temporales: Días desde la operación y información del día de la semana
+Rounding: ensures value precision with 3 decimals.
 
-🔄 Estrategia de Ejecución
+Temporal metrics: provides information about day of week and calculates between operation date and currently date.
 
-Todos los modelos en la capa Silver se implementan como vistas materializadas en Snowflake, lo que garantiza:
+🔄 Execution strategy
 
-Mejor rendimiento en consultas frecuentes
+Every model in this layer are implemented as materialized views in snowflake, this ensures:
 
-Mantenimiento automático de los datos
+Improved performance for frequently querys.
 
-Actualizaciones incrementales cuando es posible
+Automatic data maintenance.
 
-Balance entre costo y performance
+Incremental updates where possible.
+
+A balance between cost and performance.
+
+The next step is the gold layer [Gold](../marts/README.md)
